@@ -150,13 +150,7 @@ setTimeout(function(){
                 }
                 else{
                     // default AI's turn
-                    let move;
-                    if(Math.random() >= 0.3){
-                        move = defaultAI.getMove(board[i].getBoard());
-                    }
-                    else{
-                        move = defaultAI.getRandomMove(board[i].getBoard());
-                    }
+                    let move = defaultAI.getMove(board[i]);
                     if(board[i].markBoard(move) == false){
                         brain.setBrainScore(i, turn);
                         gameOver[i] = true;
@@ -195,7 +189,7 @@ setTimeout(function(){
         if(allGameOver){
             // evolve and restart all
             console.log('generation: ' + brain.getGeneration() + ', score: ' + brain.getHighScore());
-            if(brain.getHighScore() >= goal && brain.getGeneration() >= 1000){
+            if(brain.getHighScore() >= goal && brain.getGeneration() >= 300){
                 clearInterval(interval);
                 console.log('winner: ' + winner);
                 console.log('maxScore: ' + maxScore);
