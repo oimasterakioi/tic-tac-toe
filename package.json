@@ -1,0 +1,4 @@
+{
+    "name": "tic-tac-toe",
+    "main": "./index.js"
+}
